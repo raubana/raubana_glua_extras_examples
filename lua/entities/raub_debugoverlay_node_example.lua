@@ -2,9 +2,9 @@ AddCSLuaFile()
 
 DEFINE_BASECLASS( "base_anim" )
 
-ENT.PrintName		= "debugoverlay.ThickLine"
+ENT.PrintName		= "debugoverlay.Node"
 ENT.Author			= "Raubana"
-ENT.Information		= "A ball that draws a thick line for its velocity."
+ENT.Information		= "A ball that draws a cube ahead of its position based on its velocity."
 ENT.Category		= "Raubana GLua Extras Examples"
 
 ENT.Editable		= true
@@ -36,15 +36,14 @@ end
 if SERVER then
 
 	function ENT:Think()
-		if not debugoverlay.ThickLine then return end
+		if not debugoverlay.Node then return end
 		
 		local pos = self:GetPos()
 		local vel = self:GetVelocity()
 		
-		debugoverlay.ThickLine(
-			pos,
+		debugoverlay.Node(
 			pos + (vel),
-			10,
+			20,
 			engine.TickInterval() * 2,
 			HSVToColor(
 				(CurTime()%1.0)*360,
