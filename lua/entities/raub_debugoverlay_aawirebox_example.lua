@@ -15,19 +15,11 @@ ENT.RenderGroup		= RENDERGROUP_OPAQUE
 
 
 
-local radius = 90
-
 function ENT:Initialize()
-	self:SetModel( "models/hunter/misc/sphere375x375.mdl" )
+	self:SetModel( "models/Combine_Helicopter/helicopter_bomb01.mdl" )
 	
 	if SERVER then
-		self:PhysicsInitSphere(radius, "metal")
-		self:SetCollisionBounds(Vector(1,1,1)*-(radius+5), Vector(1,1,1)*(radius+5))
-		local phys = self:GetPhysicsObject()
-		phys:SetMass(100)
-		phys:EnableMotion(true)
-		phys:Wake()
-		phys:EnableDrag(false)
+		self:PhysicsInit(SOLID_VPHYSICS)
 	end
 end
 
