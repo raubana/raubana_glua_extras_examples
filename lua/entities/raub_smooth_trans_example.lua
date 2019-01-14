@@ -39,7 +39,7 @@ if CLIENT then
 	
 		local player_is_too_close = localplayer:GetPos():Distance( self:GetPos() ) <= 200
 	
-		self.smooth_trans:SetDirection( not player_is_too_close )
+		self.smooth_trans:SetDirection( player_is_too_close )
 		self.smooth_trans:Update()
 		
 		local p = self.smooth_trans:GetPercent()
@@ -48,8 +48,8 @@ if CLIENT then
 		if dlight then
 			dlight.pos = self:GetPos()
 			dlight.r = 255
-			dlight.g = 255*(1-p)
-			dlight.b = 255*p
+			dlight.g = 255*p
+			dlight.b = 255*(1-p)
 			dlight.brightness = 5
 			dlight.Decay = 500
 			dlight.Size = 128

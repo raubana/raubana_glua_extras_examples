@@ -23,7 +23,7 @@ function ENT:Initialize()
 	end
 	
 	if CLIENT then
-		self.perlin_noise = PERLIN_NOISE_GEN:create( 10, 0.25, 3, self:EntIndex() )
+		self.perlin_noise = PERLIN_NOISE_GEN:create( 10, 0.25, 3 )
 	end
 end
 
